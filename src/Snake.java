@@ -30,9 +30,11 @@ public class Snake {
         }
 
         if (isInputValid(snake)) {
-            whoIsVinner(arrOfStr, beautifiedStr);
-        } else if (x == 4 && o == 4) {
-            System.out.println("ничья");
+            isStatusValid();
+        }
+
+        if (isStatusValid()) {
+            proceedGame(arrOfStr, beautifiedStr);
         }
     }// end of main method
 
@@ -46,16 +48,26 @@ public class Snake {
     }
 
     static boolean isStatusValid() {
-        if (x > 0) {
+        if ((x > o) && (x != o) && (x + o < 8)) {
             System.out.println("Корректный статус");
             return true;
         } else {
-            System.out.println("Правильный ввод, некорректный статус");
+            System.out.println("Правильный ввод, некорректный статус или ничья");
             return false;
         }
     }
 
-    static void whoIsVinner(String[] arrOfStr, String[] beautifiedStr) {
+    static void proceedGame(String[] arr1, String[] arr2) {
+        if (x > o) {
+            System.out.println("игра прод. нолики ходят");
+        } else if (x < o){
+            System.out.println("игра прод. крестики ходят");
+        } else {
+            defineWinner(arr1, arr2);
+        }
+    }
+
+    static void defineWinner(String[] arrOfStr, String[] beautifiedStr) {
         //Diagonal 1
         if (arrOfStr[0].equals("x") && arrOfStr[4].equals("x") && arrOfStr[8].equals("x")) {
             System.out.println("Корректный статус, игра закончена, крестики  выиграли");
@@ -88,7 +100,7 @@ public class Snake {
         if (arrOfStr[0].equals("o") && arrOfStr[3].equals("o") && arrOfStr[6].equals("o")) {
             System.out.println("Корректный статус, игра закончена, нолики  выиграли");
         }
-       //Vertical 2
+        //Vertical 2
         if (arrOfStr[1].equals("x") && arrOfStr[4].equals("x") && arrOfStr[7].equals("x")) {
             System.out.println("Корректный статус, игра закончена, крестики  выиграли");
         }
