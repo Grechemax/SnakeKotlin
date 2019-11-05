@@ -36,9 +36,9 @@ public class InteractionsWithString {
 
 
     boolean isStatusValid(String input) {
-        if (xCount(input) - oCount(input) == 0 && defineWinner.isOWin(input) || xCount(input) - oCount(input) == 0 && defineWinner.isXWin(input) ) {
+        if (defineWinner.isOWin(input) && defineWinner.isXWin(input)) {
             return false;
-        } else if ((xCount(input) - oCount(input) == 0 | xCount(input) - oCount(input) == 1) && xCount(input) + oCount(input) < 9) {
+        } else if (xCount(input) - oCount(input) == 0 | xCount(input) - oCount(input) == 1) {
             return true;        // game is continuing
         } else {
             return false;

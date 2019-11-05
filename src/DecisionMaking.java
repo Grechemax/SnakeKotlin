@@ -20,8 +20,6 @@ public class DecisionMaking extends InteractionsWithString {
         } else {
             System.out.println("Input not correct");
         }
-
-
     }
 }
 
