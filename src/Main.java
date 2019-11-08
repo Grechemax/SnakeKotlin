@@ -13,9 +13,8 @@ public class Main {
 
         DecisionMaking decisionMaking = new DecisionMaking();
         decisionMaking.beautifyOutput(input);
+        decisionMaking.whatTheStatusCode(input);
         decisionMaking.whatTheStatus(input);
-
-
     }
 }
 
