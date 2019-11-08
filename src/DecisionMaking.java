@@ -3,42 +3,44 @@ public class DecisionMaking extends InteractionsWithString {
     IsGameContinue isGameContinue = new IsGameContinue();
 
 
-    public void whatTheStatus(String input) {
+    public String whatTheStatus(String input) {
         switch (whatTheStatusCode(input)) {
             case 301:
-                System.out.println(Code.X_WON);
-                break;
+                return Code.X_WON.value;
             case 302:
-                System.out.println(Code.O_WON);
-                break;
+                return Code.O_WON.value;
             case 100:
-                System.out.println(Code.GAME_CONTINUES);
-                break;
+                return Code.GAME_CONTINUES.value;
             case 404:
-                System.out.println(Code.STATUS_INCORRECT);
-                break;
+                return Code.STATUS_INCORRECT.value;
             case 500:
-                System.out.println(Code.INPUT_INCORRECT);
-                break;
+                return Code.INPUT_INCORRECT.value;
+            default:
+                return Code.STATUS_CORRECT.value;
         }
-
-
     }
 
     enum Code {
-        X_WON,
-        O_WON,
-        STATUS_CORRECT,
-        STATUS_INCORRECT,
-        INPUT_INCORRECT,
-        GAME_CONTINUES
+        X_WON("x won"),
+        O_WON("o won"),
+        STATUS_CORRECT("Status correct"),
+        STATUS_INCORRECT("Status is incorrect"),
+        INPUT_INCORRECT("Input is incorrect"),
+        GAME_CONTINUES("Game continues");
+
+        private String value;
+
+        Code(String value) {
+            this.value = value;
+        }
     }
+
 
     public int whatTheStatusCode(String input) {
         if (isInputValid(input)) {
             if (isStatusValid(input)) {
 //                System.out.println("Status correct");
-//                return 200;
+//                return 200;                                   // how to fix?
                 if (defineWinner.isXWin(input)) {
                     return 301;
                 } else if (defineWinner.isOWin(input)) {
