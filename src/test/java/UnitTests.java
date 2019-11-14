@@ -9,40 +9,30 @@ public class UnitTests {
     DecisionMaking decisionMaking = new DecisionMaking();
 
 
-    @DataProvider
+    @DataProvider(name = "getData")
     public Object[][] getData() {
-        return new Object[][]{{404, "xxxooo---"}, {500, "ooooxxxxo"}};
+        return new Object[][]{
+                {"xxxooo---", "Status is incorrect", 404},
+                {"oomoxxxxo", "Input is incorrect", 500},
+                {"x--------", "Game continues", 100},
+                {"xxxoo----", "x won", 301},
+                {"xxoxx-ooo", "o won", 302}};
     }
 
 
     @Test(dataProvider = "getData")
 
-    public void testMethod(Integer code, String status) {
+    public void testMethod(String gameData, String outcomeStatus, int outcomeCode) {
 
-        int outcomeCode = decisionMaking.whatTheStatusCode(status);
-        Assert.assertEquals(code, outcomeCode);
-        System.out.println("given data " + status);
+        decisionMaking.whatTheStatusCode(gameData);
+
+        Assert.assertEquals(outcomeStatus, decisionMaking.whatTheStatus(gameData));
+        Assert.assertEquals(outcomeCode, decisionMaking.whatTheStatusCode(gameData));
+
+
+//        System.out.println("given data " + code + " = " + outcomeCode + " " + gameData);
 
     }
 
 
-
 }
-
-
-//  status  public String whatTheStatus(String input) {
-//        switch (whatTheStatusCode(input)) {
-//            case 301:
-//                return DecisionMaking.Code.X_WON.value;
-//            case 302:
-//                return DecisionMaking.Code.O_WON.value;
-//            case 100:
-//                return DecisionMaking.Code.GAME_CONTINUES.value;
-//            case 404:
-//                return DecisionMaking.Code.STATUS_INCORRECT.value;
-//            case 500:
-//                return DecisionMaking.Code.INPUT_INCORRECT.value;
-//            default:
-//                return DecisionMaking.Code.STATUS_CORRECT.value;
-//        }
-//    }
