@@ -1,38 +1,55 @@
 import org.testng.Assert;
-import org.testng.AssertJUnit;
-import org.testng.IDataProviderMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import org.testng.asserts.Assertion;
+import utils.Constant;
+import utils.ExcelUtils;
+
+import java.io.IOException;
 
 public class UnitTests {
     DecisionMaking decisionMaking = new DecisionMaking();
 
 
-    @DataProvider(name = "getData")
-    public Object[][] getData() {
-        return new Object[][]{
-                {"xxxooo---", "Status is incorrect", 404},
-                {"oomoxxxxo", "Input is incorrect", 500},
-                {"x--------", "Game continues", 100},
-                {"xxxoo----", "x won", 301},
-                {"xxoxx-ooo", "o won", 302}};
+    // returning the data object
+    @DataProvider(name = "snakeData")
+    public Object[][] getData() throws IOException {
+        Object data[][] = testData(Constant.SHEET_PATH, Constant.SHEET);
+        return data;
+    }
+
+    // running a loop to get all data in a Object Array
+    public Object[][] testData(String excelPath, String excelSheet) throws IOException {
+        ExcelUtils excel = new ExcelUtils(excelPath, excelSheet);
+
+
+        // getting row and columns count
+        int rowCount = excel.getRowCount();
+        int colCount = excel.getColCount();
+
+        Object data[][] = new Object[rowCount - 1][colCount];
+
+
+        for (int i = 1; i < rowCount; i++) {
+            for (int j = 0; j < colCount; j++) {
+                String cellData = excel.getCellDataString(i, j);
+//                System.out.println(cellData + "cellData: ");
+                data[i - 1][j] = cellData;
+            }
+        }
+        return data;
     }
 
 
-    @Test(dataProvider = "getData")
+    @Test(dataProvider = "snakeData")
+    public void testMethod(String gameData, String outcomeStatus, String outcomeCode) {
 
-    public void testMethod(String gameData, String outcomeStatus, int outcomeCode) {
-
-        decisionMaking.whatTheStatusCode(gameData);
+//        decisionMaking.whatTheStatusCode(gameData);
+//        Assert.assertEquals(outcomeCode, decisionMaking.whatTheStatusCode(gameData));
 
         Assert.assertEquals(outcomeStatus, decisionMaking.whatTheStatus(gameData));
-        Assert.assertEquals(outcomeCode, decisionMaking.whatTheStatusCode(gameData));
 
 
-//        System.out.println("given data " + code + " = " + outcomeCode + " " + gameData);
+        System.out.println("Given data " + gameData +  "; Code: " + outcomeCode + "; Status: " + outcomeStatus);
 
     }
-
-
 }
