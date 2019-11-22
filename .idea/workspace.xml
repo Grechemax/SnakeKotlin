@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8517d5c4-b407-4d79-afa5-96946d6bb1f4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/excel/Book2.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/utils/Constant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/utils/ExcelDataProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/utils/ExcelUtils.java" afterDir="false" />
+    <list default="true" id="8517d5c4-b407-4d79-afa5-96946d6bb1f4" name="Default Changelist" comment="added git ig">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnakeTestnNG.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/UnitTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/UnitTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/UnitTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/UnitTests.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
