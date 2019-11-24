@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8517d5c4-b407-4d79-afa5-96946d6bb1f4" name="Default Changelist" comment="" />
+    <list default="true" id="8517d5c4-b407-4d79-afa5-96946d6bb1f4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/excel/Book2.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/excel/Book2.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/UnitTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/UnitTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/utils/ExcelUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utils/ExcelUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/UnitTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/UnitTests.class" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +58,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.UnitTests.testMethod">
+  <component name="RunManager" selected="TestNG.UnitTests.testMethod (1)">
     <configuration name="ExcelDataProvider" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="utils.ExcelDataProvider" />
       <module name="SnakeTestnNG" />
@@ -88,18 +94,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UnitTests" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="SnakeTestnNG" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="UnitTests" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UnitTests.testMethod" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="UnitTests.testMethod (1)" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="SnakeTestnNG" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="UnitTests" />
@@ -111,20 +106,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UnitTests.testMethod" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="SnakeTestnNG" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="utils.UnitTests" />
+      <option name="METHOD_NAME" value="testMethod" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="TestNG.UnitTests" />
       <item itemvalue="Application.ExcelUtils" />
       <item itemvalue="Application.ExcelDataProvider" />
       <item itemvalue="TestNG.UnitTests.testMethod" />
+      <item itemvalue="TestNG.UnitTests.testMethod (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.UnitTests.testMethod (1)" />
         <item itemvalue="TestNG.UnitTests.testMethod" />
         <item itemvalue="Application.ExcelDataProvider" />
         <item itemvalue="Application.ExcelUtils" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="TestNG.UnitTests" />
       </list>
     </recent_temporary>
   </component>
@@ -146,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574441019545</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="removed excel to test; added git ignore; statusCode int.">
+      <created>1574441215088</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1574441215088</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -164,7 +178,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="removed excel to test; added git ignore; statusCode int" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed excel to test; added git ignore; statusCode int" />
+    <MESSAGE value="removed excel to test; added git ignore; statusCode int." />
+    <option name="LAST_COMMIT_MESSAGE" value="removed excel to test; added git ignore; statusCode int." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SnakeTestnNG$UnitTests.ic" NAME="UnitTests Coverage Results" MODIFIED="1573730640352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

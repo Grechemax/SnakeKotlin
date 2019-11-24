@@ -1,7 +1,9 @@
+import org.apache.poi.ss.usermodel.CellType;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utils.Constant;
+import utils.ExcelDataProvider;
 import utils.ExcelUtils;
 
 import java.io.IOException;
@@ -19,21 +21,33 @@ public class UnitTests {
 
     // running a loop to get all data in a Object Array
     public Object[][] testData(String excelPath, String excelSheet) throws IOException {
-        ExcelUtils excel = new ExcelUtils(excelPath, excelSheet);
+        ExcelUtils excelUtils = new ExcelUtils(excelPath, excelSheet);
 
 
         // getting row and columns count
-        int rowCount = excel.getRowCount();
-        int colCount = excel.getColCount();
+        int rowCount = excelUtils.getRowCount();
+        int colCount = excelUtils.getColCount();
 
         Object data[][] = new Object[rowCount - 1][colCount];
 
 
         for (int i = 1; i < rowCount; i++) {
             for (int j = 0; j < colCount; j++) {
-                String cellData = excel.getCellDataString(i, j);
-//                System.out.println(cellData + "cellData: ");
-                data[i - 1][j] = cellData;
+
+//                String cellData = excelUtils.getCellDataString(i, j);
+//                data[i - 1][j] = cellData;
+
+
+                switch(excelUtils.cellType(i, j)) {
+                    case STRING:
+                        String cellData = excelUtils.getCellDataString(i, j);
+                        data[i - 1][j] = cellData;
+                        break;
+                    case NUMERIC:
+                        int cellDataNumber = (int)excelUtils.getCellDataNumber(i, j);
+                        data[i - 1][j] = cellDataNumber;
+                        break;
+                }
             }
         }
         return data;
@@ -41,15 +55,14 @@ public class UnitTests {
 
 
     @Test(dataProvider = "snakeData")
-    public void testMethod(String gameData, String outcomeStatus, String outcomeCode) {
+    public void testMethod(String gameData, String outcomeStatus, int outcomeCode) {
+        int code = decisionMaking.whatTheStatusCode(gameData);
+        String status = decisionMaking.whatTheStatus(gameData);
 
-//        decisionMaking.whatTheStatusCode(gameData);
-//        Assert.assertEquals(outcomeCode, decisionMaking.whatTheStatusCode(gameData));
+        Assert.assertEquals(outcomeCode, code);
+        Assert.assertEquals(outcomeStatus, status);
 
-        Assert.assertEquals(outcomeStatus, decisionMaking.whatTheStatus(gameData));
-
-
-        System.out.println("Given data " + gameData +  "; Code: " + outcomeCode + "; Status: " + outcomeStatus);
+        System.out.println("Given data: " + gameData +  ";  Code: " + outcomeCode + ";  Status: " + outcomeStatus);
 
     }
 }

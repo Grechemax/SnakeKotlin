@@ -2,6 +2,8 @@ package utils;
 
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -23,10 +25,6 @@ public class ExcelUtils {
 
     }
 
-
-    public static void main(String[] args) throws IOException {
-        getCellDataString(1, 0);
-    }
 
     public static int getRowCount() throws IOException {
         int rowCount = 0;
@@ -57,12 +55,15 @@ public class ExcelUtils {
     }
 
 
+    public static CellType cellType(int rows, int columns) {
+        return sheet.getRow(rows).getCell(columns).getCellTypeEnum();
+    }
+
     // retrieving data from a particular String cell
     public static String getCellDataString(int rows, int columns) throws IOException {
         String cellData = null;
         try {
             cellData = sheet.getRow(rows).getCell(columns).getStringCellValue();
-//            System.out.println(cellData);
         } catch (Exception exp) {
             System.out.println(exp.getMessage());
             System.out.println(exp.getCause());
@@ -72,15 +73,17 @@ public class ExcelUtils {
     }
 
     // retrieving data from a particular Number cell
-    public static void getCellDataNumber(int rows, int columns) throws IOException {
+    public static double getCellDataNumber(int rows, int columns) throws IOException {
+        double cellData = 0;
         try {
-            double cellData = sheet.getRow(rows).getCell(columns).getNumericCellValue();
-//            System.out.println(cellData);
+            cellData = sheet.getRow(rows).getCell(columns).getNumericCellValue();
         } catch (Exception exp) {
             System.out.println(exp.getMessage());
             System.out.println(exp.getCause());
             exp.printStackTrace();
         }
+        return cellData;
     }
+
 }
 
